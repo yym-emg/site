@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <script>
+    // Call the prompt function to get coefficients a, b, and c
+    let aStr = prompt("Please enter the coefficient a of the quadratic term");
+    let bStr = prompt("Please enter the coefficient b of the linear term");
+    let cStr = prompt("Please enter the constant term c");
+
+    // Convert the inputs into numbers
+    let a = parseFloat(aStr);
+    let b = parseFloat(bStr);
+    let c = parseFloat(cStr);
+
+    // Calculate the discriminant delta
+    let delta = b * b - 4 * a * c;
+
+    // Calculate the two roots of the quadratic equation
+    let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+    let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+    // Use alert to inform the user of the results
+    alert("The two roots of the equation are: x1 = " + x1 + ", x2 = " + x2);
+
+    // Use console.log to output the results
+    console.log("The two roots of the equation are: x1 = " + x1 + ", x2 = " + x2);
+  </script>
+</body>
+
+</html>
