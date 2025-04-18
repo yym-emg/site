@@ -1,0 +1,48 @@
+OOP
+面向对象
+物体导向的
+拟物的
+拟人
+encapsulation
+封装
+capsule
+胶囊
+
+Literal
+var 概念={id:"abc";
+age:1,
+}
+	var student={id."114514",
+	Object.create(voncreate)
+	b=function Student(i,n,a)
+{
+	this.id=i;    //attr,bute 特性
+	this.method=function(){}
+	student.prototype.methodz=function()
+}
+let s=new student("114514"),
+     b=new student("......","......");
+
+<script>
+function balloon(color,diameter,speed)
+{
+	this.color = color;
+	this.diameter = diameter;
+	this.speed = speed;
+	thisid = id;
+	this.make = function()
+	{
+		let dv = document.createElement('div');
+		div.id = id;
+		dv.style.cssText = 'width:' + diameter + 
+		'px;height' + this.diameter + 'px;border-radius:' + 
+		(diameter/2) + 'px;background-color:' + this.color;
+		+ ';position:absolute;left:' + (id*50) + 'px;top:700px';
+			document.body.appendChild(dv);
+	}
+	this.rise = function()
+	{
+		
+	}
+</script>
+     
