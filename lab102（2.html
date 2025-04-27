@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <table id="tbl">
+        <tr>
+            <td>yang</td>
+        </tr>
+        <tr>
+            <td>yaoming</td>
+        </tr>
+    </table>
+    <script>
+        onload = sortbyfirstname;
+        let sortbyfirstname = function () {
+            const tbl = document.getElementById('tbl');
+            const rows = [];
+            for (let i = 0; i < tbl.rows.length; i++) {
+                const cells = tbl.rows[i].cells;
+                const name = cells[0].innerHTML;
+                const parts = name.split(' ');
+                const firstName = parts[0];
+                rows.push({
+                    originalRow: tbl.rows[i],
+                    firstName: firstName
+                });
+            }
+            rows.sort((a, b) => {
+                if (a.firstName < b.firstName) return -1;
+                if (a.firstName > b.firstName) return 1;
+                return 0;
+            });
+            while (tbl.rows.length > 0) {
+                tbl.deleteRow(0);
+            }
+            rows.forEach(rowObj => {
+                tbl.appendChild(rowObj.originalRow);
+            });
+        }
+    </script>
+</body>
+
+</html>
