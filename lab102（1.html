@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>气球动画</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const colors = ['red', 'orange', 'yellow', 'green', 'black', 'blue', 'purple'];
+
+        function Balloon() {
+            this.x = Math.random() * canvas.width;
+            this.y = canvas.height;
+            this.size = Math.random() * 30 + 10; // 初始大小
+            this.speed = Math.random() * 3 + 1;
+            this.color = colors[Math.floor(Math.random() * colors.length)]; 
+        }
+
+        Balloon.prototype.update = function () {
+            this.y -= this.speed;
+            this.size += 0.2; 
+            if (this.y < 0) {
+                this.y = 0;
+            }
+            const burstHeight = 50; 
+            if (this.y < burstHeight) {
+                const index = balloons.indexOf(this);
+                if (index > -1) {
+                    balloons.splice(index, 1);
+                }
+            }
+        };
+
+        Balloon.prototype.draw = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.closePath();
+        };
+
+        const balloons = [];
+        for (let i = 0; i < 10; i++) {
+            balloons.push(new Balloon());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (const balloon of balloons) {
+                balloon.update();
+                balloon.draw();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
